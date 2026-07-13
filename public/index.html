@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>იოგა ბუნებაში — ეკატოსთან ერთად / Yoga in Nature — With Ekato</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;600;700&family=Noto+Sans+Georgian:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="canopy" aria-hidden="true"></div>
+
+<header class="top-bar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 40 40" width="28" height="28">
+        <path d="M20 4 C20 4 8 12 8 22 C8 30 13.5 36 20 36 C26.5 36 32 30 32 22 C32 12 20 4 20 4 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M20 10 C20 10 20 24 20 34" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      </svg>
+    </span>
+    <span class="brand-name" data-i18n="brandName">იოგა ბუნებაში</span>
+  </div>
+  <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow" data-i18n="eyebrow">ღია ცის ქვეშ · სუნთქვა · სიმშვიდე</p>
+      <h1 data-i18n="title">იოგა ბუნებაში<br><span>ეკატოსთან ერთად</span></h1>
+      <p class="tagline" data-i18n="tagline">
+        პრაქტიკის დროს გამოვცდით მრავალფეროვან მდგომარეობებს. გავერთობით, გავაჯანსაღებთ სხეულს და გონებას.
+      </p>
+      <a href="#register" class="cta-link" data-i18n="heroCta">დარეგისტრირდი ↓</a>
+    </div>
+
+    <div class="breath" aria-hidden="true">
+      <svg viewBox="0 0 220 220" width="220" height="220">
+        <circle class="breath-ring ring-3" cx="110" cy="110" r="95"/>
+        <circle class="breath-ring ring-2" cx="110" cy="110" r="70"/>
+        <circle class="breath-circle" cx="110" cy="110" r="46"/>
+      </svg>
+      <p class="breath-label" id="breathLabel" data-inhale="ჩაისუნთქე" data-exhale="ამოისუნთქე" data-inhale-en="Inhale" data-exhale-en="Exhale">ჩაისუნთქე</p>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-inner">
+      <h2 data-i18n="aboutTitle">რას შეიგრძნობთ</h2>
+      <p data-i18n="aboutBody">
+        გაკვეთილები ტარდება ღია ცის ქვეშ — ხეების ჩრდილში, დილის სინათლეზე. სუნთქვის, მოძრაობისა და სიჩუმის მონაცვლეობით
+        ვქმნით სივრცეს, სადაც სხეული და გონება ერთმანეთს უბრუნდება.
+      </p>
+      <p class="instagram-note" data-i18n="instagramNote">
+  დეტალური ინფორმაციისთვის მომწერეთ <a href="https://www.instagram.com/ekaterinemakashvili/" target="_blank" rel="noopener">Instagram</a>-ზე.
+</p>
+    </div>
+  </section>
+
+  <section class="register" id="register">
+    <div class="register-inner">
+      <h2 data-i18n="formTitle">რეგისტრაცია</h2>
+
+      <form id="registrationForm" novalidate>
+
+        <div class="field">
+          <label for="fullName" data-i18n="labelName">სახელი და გვარი</label>
+          <input type="text" id="fullName" name="fullName" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label for="phone" data-i18n="labelPhone">ტელეფონის ნომერი</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+995 5__ ______" required>
+        </div>
+
+        <div class="field">
+          <span class="field-label" data-i18n="labelPackage">აირჩიე პაკეტი <em data-i18n="labelPackageNote">(მოქმედების ვადა 30 დღე)</em></span>
+
+          <div class="packages" role="radiogroup" aria-label="package">
+
+            <label class="package-card">
+              <input type="radio" name="packageId" value="p1" required>
+              <span class="package-body">
+                <span class="package-leaves" aria-hidden="true">🌿</span>
+                <span class="package-sessions" data-i18n="pkg1">1 ვარჯიში</span>
+                <span class="package-price">20&nbsp;₾</span>
+              </span>
+            </label>
+
+            <label class="package-card">
+              <input type="radio" name="packageId" value="p4" required>
+              <span class="package-body">
+                <span class="package-leaves" aria-hidden="true">🌿🌿</span>
+                <span class="package-sessions" data-i18n="pkg4">4 ვარჯიში</span>
+                <span class="package-price">60&nbsp;₾</span>
+              </span>
+            </label>
+
+            <label class="package-card">
+              <input type="radio" name="packageId" value="p8" required>
+              <span class="package-body">
+                <span class="package-leaves" aria-hidden="true">🌿🌿🌿</span>
+                <span class="package-sessions" data-i18n="pkg8">8 ვარჯიში</span>
+                <span class="package-price">100&nbsp;₾</span>
+              </span>
+              <span class="package-badge" data-i18n="pkgPopular">პოპულარული</span>
+            </label>
+
+            <label class="package-card">
+              <input type="radio" name="packageId" value="p12" required>
+              <span class="package-body">
+                <span class="package-leaves" aria-hidden="true">🌿🌿🌿🌿</span>
+                <span class="package-sessions" data-i18n="pkg12">12 ვარჯიში</span>
+                <span class="package-price">140&nbsp;₾</span>
+              </span>
+            </label>
+
+          </div>
+        </div>
+
+        <div class="field">
+          <span class="field-label" data-i18n="labelPayment">გადახდა</span>
+          <div class="payment-methods">
+            <span>Visa</span><span>Mastercard</span><span>Amex</span><span>Apple&nbsp;Pay</span><span>TBC&nbsp;E-Commerce</span>
+          </div>
+          <p class="payment-note" data-i18n="paymentNote">
+            გადახდა მუშავდება TBC E-Commerce-ის დაცული გვერდზე. მიიღება ნებისმიერი ბანკის ბარათი, BOG-ის ჩათვლით.
+          </p>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn" data-i18n="submitBtn">
+          გაგრძელება გადახდაზე
+        </button>
+
+        <p class="form-error" id="formError" role="alert"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p data-i18n="footerNote">იოგა ბუნებაში · გახვდი ხე-ტყეს, გაჯანსაღდი შენით</p>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

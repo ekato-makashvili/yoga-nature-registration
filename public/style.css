@@ -1,0 +1,568 @@
+/* =========================================================
+   იოგა ბუნებაში — დიზაინის სისტემა
+   Yoga in Nature — design system
+
+   ფერები: ღრმა ტყის მწვანე, ხავსისფერი, დილის ოქროსფერი შუქი,
+   ნისლიანი ქაღალდისფერი ფონი.
+   Colors: deep canopy green, moss, morning gold light,
+   misty paper background.
+   ========================================================= */
+
+:root {
+  --canopy: #1F3A2A;      /* ღრმა ტყის მწვანე / deep canopy green */
+  --moss: #4B6C4B;        /* ხავსისფერი / moss */
+  --moss-soft: #7A9678;   /* რბილი ხავსი / soft moss */
+  --gold: #C9982E;        /* დილის შუქი / morning light gold */
+  --gold-soft: #E7C77A;   /* რბილი ოქრო / soft gold */
+  --paper: #F1F0E1;       /* ნისლიანი ქაღალდი / misty paper */
+  --paper-deep: #E7E4CE;  /* ოდნავ მუქი ქაღალდი / slightly deeper paper */
+  --bark: #2A2620;        /* ქერქისფერი ტექსტი / bark text */
+  --mist: #DCE3D3;        /* ნისლისფერი / pale mist border */
+  --error: #A8432E;
+
+  --font-display: 'Noto Serif Georgian', 'Noto Serif', serif;
+  --font-body: 'Noto Sans Georgian', 'Noto Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--paper);
+  color: var(--bark);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ტყის ჩრდილის ეფექტი ფონზე / subtle canopy shadow texture on the background */
+.canopy {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 40% at 10% 0%, rgba(31, 58, 42, 0.12), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 90% 10%, rgba(75, 108, 75, 0.10), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 50% 100%, rgba(31, 58, 42, 0.08), transparent 70%);
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2 {
+  font-family: var(--font-display);
+  color: var(--canopy);
+  margin: 0;
+  font-weight: 600;
+}
+
+/* ---------- Top bar ---------- */
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--canopy);
+}
+
+.brand-mark {
+  display: inline-flex;
+  color: var(--gold);
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.lang-toggle {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  background: transparent;
+  border: 1.5px solid var(--canopy);
+  color: var(--canopy);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lang-toggle:hover,
+.lang-toggle:focus-visible {
+  background: var(--canopy);
+  color: var(--paper);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 3rem;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin: 0 0 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 4.5vw, 3.4rem);
+  line-height: 1.12;
+}
+
+.hero h1 span {
+  color: var(--gold);
+  display: block;
+  font-size: 0.7em;
+}
+
+.tagline {
+  max-width: 46ch;
+  font-size: 1.05rem;
+  color: #423d33;
+  margin: 1.3rem 0 1.8rem;
+}
+
+.cta-link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  color: var(--canopy);
+  border-bottom: 1.5px solid var(--gold);
+  padding-bottom: 0.2rem;
+  transition: opacity 0.2s ease;
+}
+
+.cta-link:hover {
+  opacity: 0.7;
+}
+
+/* ---------- Breathing circle (signature element) ---------- */
+
+.breath {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.breath-ring,
+.breath-circle {
+  fill: none;
+  stroke: var(--moss-soft);
+  stroke-width: 1;
+  transform-origin: 110px 110px;
+  animation: breathe 8s ease-in-out infinite;
+}
+
+.breath-circle {
+  fill: var(--gold-soft);
+  fill-opacity: 0.55;
+  stroke: var(--gold);
+  stroke-width: 1.4;
+}
+
+.ring-2 {
+  animation-delay: -0.4s;
+  opacity: 0.8;
+}
+
+.ring-3 {
+  animation-delay: -0.8s;
+  opacity: 0.5;
+}
+
+@keyframes breathe {
+  0%   { transform: scale(0.82); }
+  50%  { transform: scale(1); }
+  100% { transform: scale(0.82); }
+}
+
+.breath-label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin: 0;
+  min-width: 8ch;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .breath-ring, .breath-circle {
+    animation: none;
+  }
+}
+
+/* ---------- About ---------- */
+
+.about {
+  background: var(--canopy);
+  color: var(--paper);
+  padding: 3.5rem 1.5rem;
+}
+
+.about-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about h2 {
+  color: var(--gold-soft);
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  color: #E3E7DC;
+  font-size: 1.02rem;
+}
+
+.instagram-note {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.instagram-note a {
+  color: var(--gold-soft);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.instagram-note a:hover {
+  color: #fff;
+}
+
+/* ---------- Register section ---------- */
+
+.register {
+  padding: 4rem 1.5rem 5rem;
+}
+
+.register-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #FBFAF3;
+  border: 1px solid var(--mist);
+  border-radius: 18px;
+  padding: 2.5rem clamp(1.25rem, 4vw, 2.75rem);
+  box-shadow: 0 20px 50px -30px rgba(31, 58, 42, 0.35);
+}
+
+.register h2 {
+  font-size: 1.7rem;
+  margin-bottom: 1.75rem;
+}
+
+.field {
+  margin-bottom: 1.6rem;
+}
+
+.field label,
+.field-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--moss);
+  margin-bottom: 0.5rem;
+}
+
+.field-label em {
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #7a7566;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+}
+
+.field input[type="text"],
+.field input[type="tel"] {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid var(--mist);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--bark);
+  transition: border-color 0.2s ease;
+}
+
+.field input:focus-visible {
+  outline: none;
+  border-color: var(--gold);
+}
+
+/* Package cards */
+
+.packages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.package-card {
+  position: relative;
+  border: 1.5px solid var(--mist);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+  background: #fff;
+  transition: border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  display: block;
+}
+
+.package-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -18px rgba(31, 58, 42, 0.5);
+}
+
+.package-card input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.package-card.selected {
+  border-color: var(--gold);
+  background: #FFF9EC;
+}
+
+.package-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.package-leaves {
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.package-sessions {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.98rem;
+  color: var(--bark);
+}
+
+.package-price {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  color: var(--canopy);
+}
+
+.package-badge {
+  position: absolute;
+  top: -0.55rem;
+  right: 0.8rem;
+  background: var(--gold);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}
+
+/* Payment methods */
+
+.payment-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.payment-methods span {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  border: 1px solid var(--mist);
+  border-radius: 6px;
+  padding: 0.3rem 0.6rem;
+  color: #4a463c;
+  background: #fff;
+}
+
+.payment-note {
+  font-size: 0.85rem;
+  color: #6b6656;
+  margin: 0;
+}
+
+/* Submit */
+
+.submit-btn {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.95rem 1rem;
+  border: none;
+  border-radius: 10px;
+  background: var(--canopy);
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background: #16301F;
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.form-error {
+  color: var(--error);
+  font-size: 0.88rem;
+  min-height: 1.2em;
+  margin: 0.75rem 0 0;
+  display: none;
+}
+
+.form-error.visible {
+  display: block;
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  text-align: center;
+  padding: 2rem 1.5rem 3rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--moss);
+}
+
+/* ---------- Status / return page ---------- */
+
+.status-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+}
+
+.status-card {
+  max-width: 480px;
+  width: 100%;
+  background: #FBFAF3;
+  border: 1px solid var(--mist);
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 20px 50px -30px rgba(31, 58, 42, 0.35);
+}
+
+.status-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 1.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  background: var(--mist);
+  color: var(--canopy);
+}
+
+.status-card[data-state="Succeeded"] .status-icon {
+  background: var(--moss);
+  color: #fff;
+}
+
+.status-card[data-state="Failed"] .status-icon,
+.status-card[data-state="error"] .status-icon,
+.status-card[data-state="missing"] .status-icon {
+  background: var(--error);
+  color: #fff;
+}
+
+.status-card h1 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.status-card p {
+  color: #4a463c;
+  font-size: 0.95rem;
+  margin: 0 0 1.5rem;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 780px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 2rem;
+  }
+
+  .hero-text {
+    order: 2;
+  }
+
+  .breath {
+    order: 1;
+  }
+
+  .tagline {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .packages {
+    grid-template-columns: 1fr;
+  }
+}

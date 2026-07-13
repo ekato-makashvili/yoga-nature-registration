@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>გადახდის სტატუსი / Payment status</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@400;600;700&family=Noto+Sans+Georgian:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="canopy" aria-hidden="true"></div>
+
+<main class="status-page">
+  <div class="status-card" id="statusCard">
+    <div class="status-icon" id="statusIcon" aria-hidden="true">…</div>
+    <h1 id="statusTitle">მოწმდება გადახდა… / Checking payment…</h1>
+    <p id="statusBody"></p>
+    <a href="/" class="cta-link" id="backLink">← მთავარ გვერდზე დაბრუნება / Back to home</a>
+  </div>
+</main>
+
+<script>
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const regId = params.get('reg');
+
+  const iconEl = document.getElementById('statusIcon');
+  const titleEl = document.getElementById('statusTitle');
+  const bodyEl = document.getElementById('statusBody');
+  const cardEl = document.getElementById('statusCard');
+
+  const COPY = {
+    missing: {
+      icon: '?',
+      title: 'რეგისტრაცია ვერ მოიძებნა / Registration not found',
+      body: 'ბმული არასრულია. თუ გადახდა შედგა, დაგვიკავშირდით ტელეფონის ნომრით, რომელიც რეგისტრაციისას მიუთითეთ. / The link is incomplete. If your payment went through, please contact us with the phone number you registered with.'
+    },
+    error: {
+      icon: '!',
+      title: 'სტატუსის შემოწმება ვერ მოხერხდა / Could not check status',
+      body: 'სცადეთ გვერდის განახლება რამდენიმე წამში. / Try refreshing the page in a few seconds.'
+    },
+    Created: {
+      icon: '…',
+      title: 'გადახდა მიმდინარეობს / Payment in progress',
+      body: 'დაელოდეთ რამდენიმე წამს და განაახლეთ გვერდი. / Please wait a moment and refresh the page.'
+    },
+    Succeeded: {
+      icon: '✓',
+      title: 'გმადლობთ! რეგისტრაცია დასრულებულია / Thank you! Registration complete',
+      body: null // filled dynamically with package details
+    },
+    Failed: {
+      icon: '✕',
+      title: 'გადახდა ვერ შედგა / Payment failed',
+      body: 'გთხოვთ, სცადოთ თავიდან ან გამოიყენოთ სხვა ბარათი. / Please try again, or use a different card.'
+    },
+    Reversed: {
+      icon: '↺',
+      title: 'გადახდა გაუქმებულია / Payment was reversed',
+      body: 'თანხა დაბრუნებულია. / The amount has been refunded.'
+    }
+  };
+
+  function render(key, extra) {
+    const copy = COPY[key] || COPY.error;
+    cardEl.dataset.state = key;
+    iconEl.textContent = copy.icon;
+    titleEl.textContent = copy.title;
+    bodyEl.textContent = extra || copy.body || '';
+  }
+
+  if (!regId) {
+    render('missing');
+    return;
+  }
+
+  fetch('/api/payment-status/' + encodeURIComponent(regId))
+    .then((res) => res.json().then((data) => ({ ok: res.ok, data })))
+    .then(({ ok, data }) => {
+      if (!ok) {
+        render('error');
+        return;
+      }
+      if (data.status === 'Succeeded') {
+        const detail = data.language === 'EN'
+          ? `${data.fullName}, your ${data.sessions}-session package (${data.price} GEL) is confirmed.`
+          : `${data.fullName}, თქვენი ${data.sessions} ვარჯიშიანი პაკეტი (${data.price} ₾) დადასტურებულია.`;
+        render('Succeeded', detail);
+      } else {
+        render(data.status || 'error');
+      }
+    })
+    .catch(() => render('error'));
+})();
+</script>
+</body>
+</html>
