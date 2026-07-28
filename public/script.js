@@ -63,7 +63,7 @@
 
     const dict = I18N[currentLang];
     const fullName = form.fullName.value.trim();
-    const phone = form.phone.value.trim();
+const email = form.email.value.trim();
     const packageId = form.packageId.value;
 
     if (!fullName) {
@@ -71,11 +71,11 @@
       form.fullName.focus();
       return;
     }
-    if (!phone) {
-      showError(dict.errPhone);
-      form.phone.focus();
-      return;
-    }
+if (!email) {
+  showError(dict.errEmail);
+  form.email.focus();
+  return;
+}
     if (!packageId) {
       showError(dict.errPackage);
       return;
@@ -88,7 +88,7 @@
       const response = await fetch('/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fullName, phone, packageId, language: currentLang })
+        body: JSON.stringify({ fullName, email, packageId, language: currentLang })
       });
 
       const data = await response.json();
