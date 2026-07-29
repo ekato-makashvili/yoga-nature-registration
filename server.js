@@ -38,13 +38,13 @@ function writeDb(list) {
 // Form submission: saves the registration and starts a TBC payment.
 app.post('/api/register', async (req, res) => {
   try {
-    const { fullName, phone, packageId, language } = req.body || {};
+    const { fullName, email, packageId, language } = req.body || {};
 
     if (!fullName || !fullName.trim()) {
       return res.status(400).json({ error: 'სახელი და გვარი სავალდებულოა. / Full name is required.' });
     }
-    if (!phone || !phone.trim()) {
-      return res.status(400).json({ error: 'ტელეფონის ნომერი სავალდებულოა. / Phone number is required.' });
+    if (!email || !email.trim()) {
+      return res.status(400).json({ error: 'ელ-ფოსტა სავალდებულოა. / Email address is required.' });
     }
     const pkg = PACKAGES[packageId];
     if (!pkg) {
@@ -57,7 +57,7 @@ app.post('/api/register', async (req, res) => {
     const registration = {
       id: regId,
       fullName: fullName.trim(),
-      phone: phone.trim(),
+      email: email.trim(),
       packageId,
       sessions: pkg.sessions,
       price: pkg.price,
@@ -153,6 +153,7 @@ app.get('/api/payment-status/:regId', async (req, res) => {
     res.json({
       status: reg.status,
       fullName: reg.fullName,
+      email: reg.email,
       sessions: reg.sessions,
       price: reg.price,
       language: reg.language
