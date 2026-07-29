@@ -317,7 +317,8 @@ h1, h2 {
 }
 
 .field input[type="text"],
-.field input[type="tel"] {
+.field input[type="tel"],
+.field input[type="email"] {
   width: 100%;
   font-family: var(--font-body);
   font-size: 1rem;
@@ -389,7 +390,7 @@ h1, h2 {
 
 .package-price {
   font-family: var(--font-mono);
-  font-size: 1.15rem;
+  font-size: 1rem;
   color: var(--canopy);
 }
 
