@@ -36,29 +36,39 @@
     missing: {
       icon: '?',
       title: 'რეგისტრაცია ვერ მოიძებნა / Registration not found',
-      body: 'ბმული არასრულია. თუ გადახდა შედგა, დაგვიკავშირდით ელ-ფოსტით, რომელიც რეგისტრაციისას მიუთითეთ. / The link is incomplete. If your payment went through, please contact us with the email address you registered with.'
-        },
+      body: 'ბმული არასრულია. თუ გადახდა შედგა, დაგვიკავშირდით ელ. ფოსტით, რომელიც რეგისტრაციისას მიუთითეთ. / The link is incomplete. If your payment went through, please contact us with the email address you registered with.'
+    },
     error: {
       icon: '!',
       title: 'სტატუსის შემოწმება ვერ მოხერხდა / Could not check status',
       body: 'სცადეთ გვერდის განახლება რამდენიმე წამში. / Try refreshing the page in a few seconds.'
     },
-    Created: {
+    pending_payment: {
       icon: '…',
       title: 'გადახდა მიმდინარეობს / Payment in progress',
       body: 'დაელოდეთ რამდენიმე წამს და განაახლეთ გვერდი. / Please wait a moment and refresh the page.'
     },
-    Succeeded: {
+    processing: {
+      icon: '…',
+      title: 'გადახდა მიმდინარეობს / Payment in progress',
+      body: 'დაელოდეთ რამდენიმე წამს და განაახლეთ გვერდი. / Please wait a moment and refresh the page.'
+    },
+    approved: {
       icon: '✓',
       title: 'გმადლობთ! რეგისტრაცია დასრულებულია / Thank you! Registration complete',
-      body: null // filled dynamically with package details
+      body: null // შეივსება დინამიურად პაკეტის დეტალებით / filled dynamically with package details
     },
-    Failed: {
+    declined: {
       icon: '✕',
       title: 'გადახდა ვერ შედგა / Payment failed',
       body: 'გთხოვთ, სცადოთ თავიდან ან გამოიყენოთ სხვა ბარათი. / Please try again, or use a different card.'
     },
-    Reversed: {
+    expired: {
+      icon: '✕',
+      title: 'გადახდის დრო ამოიწურა / Payment session expired',
+      body: 'გთხოვთ, სცადოთ თავიდან. / Please try again.'
+    },
+    reversed: {
       icon: '↺',
       title: 'გადახდა გაუქმებულია / Payment was reversed',
       body: 'თანხა დაბრუნებულია. / The amount has been refunded.'
@@ -85,11 +95,11 @@
         render('error');
         return;
       }
-      if (data.status === 'Succeeded') {
+      if (data.status === 'approved') {
         const detail = data.language === 'EN'
           ? `${data.fullName}, your ${data.sessions}-session package (${data.price} GEL) is confirmed.`
           : `${data.fullName}, თქვენი ${data.sessions} ვარჯიშიანი პაკეტი (${data.price} ₾) დადასტურებულია.`;
-        render('Succeeded', detail);
+        render('approved', detail);
       } else {
         render(data.status || 'error');
       }
