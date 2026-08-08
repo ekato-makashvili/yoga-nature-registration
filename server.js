@@ -12,6 +12,19 @@ const PUBLIC_BASE_URL = (process.env.PUBLIC_BASE_URL || `http://localhost:${PORT
 const DATA_FILE = path.join(__dirname, 'data', 'registrations.json');
 
 app.use(express.json());
+
+// Flitt ხანდახან POST მეთოდით აბრუნებს მომხმარებელს response_url-ზე
+// (ჩვეულებრივი GET გადამისამართების ნაცვლად). ეს route POST-ს იჭერს და
+// იმავე ბმულზე ჩვეულებრივ (GET) გადამისამართებას აკეთებს, რომ static
+// ფაილი ჩვეულებრივად ჩაიტვირთოს.
+//
+// Flitt sometimes returns the user to response_url via POST (instead of
+// a normal GET redirect). This route catches that POST and redirects to
+// the same URL as a normal GET, so the static file loads correctly.
+app.post('/return.html', (req, res) => {
+  res.redirect(302, req.originalUrl);
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 const PACKAGES = {
