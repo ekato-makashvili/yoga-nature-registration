@@ -28,14 +28,25 @@ app.post('/return.html', (req, res) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 const PACKAGES = {
-  p1: { sessions: 1, price: 25, label: 'Yoga in Nature - 1 session' },
-  p4: { sessions: 4, price: 70, label: 'Yoga in Nature - 4 sessions' },
-  p8: { sessions: 8, price: 120, label: 'Yoga in Nature - 8 sessions' },
-  p12: { sessions: 12, price: 150, label: 'Yoga in Nature - 12 sessions' }
+  p1: { classs: 1, price: 25, label: 'Yoga in Nature - 1 class' },
+  p4: { classs: 4, price: 70, label: 'Yoga in Nature - 4 classs' },
+  p8: { classs: 8, price: 120, label: 'Yoga in Nature - 8 classs' },
+  p12: { classs: 12, price: 150, label: 'Yoga in Nature - 12 classs' }
 };
+
+function ensureDataFile() {
+  const dir = path.dirname(DATA_FILE);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+  if (!fs.existsSync(DATA_FILE)) {
+    fs.writeFileSync(DATA_FILE, '[]', 'utf-8');
+  }
+}
 
 function readDb() {
   try {
+    ensureDataFile();
     return JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
   } catch (err) {
     return [];
@@ -43,6 +54,7 @@ function readDb() {
 }
 
 function writeDb(list) {
+  ensureDataFile();
   fs.writeFileSync(DATA_FILE, JSON.stringify(list, null, 2), 'utf-8');
 }
 
@@ -69,7 +81,7 @@ app.post('/api/register', async (req, res) => {
       fullName: fullName.trim(),
       email: email.trim(),
       packageId,
-      sessions: pkg.sessions,
+      classs: pkg.classs,
       price: pkg.price,
       language: lang,
       status: 'pending_payment',
@@ -150,7 +162,7 @@ app.get('/api/payment-status/:regId', async (req, res) => {
     res.json({
       status: reg.status,
       fullName: reg.fullName,
-      sessions: reg.sessions,
+      classs: reg.classs,
       price: reg.price,
       language: reg.language
     });
