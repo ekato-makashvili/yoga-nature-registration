@@ -28,10 +28,10 @@ app.post('/return.html', (req, res) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 const PACKAGES = {
-  p1: { sessions: 1, price: 20, label: 'Yoga in Nature - 1 session' },
-  p4: { sessions: 4, price: 60, label: 'Yoga in Nature - 4 sessions' },
-  p8: { sessions: 8, price: 100, label: 'Yoga in Nature - 8 sessions' },
-  p12: { sessions: 12, price: 140, label: 'Yoga in Nature - 12 sessions' }
+  p1: { sessions: 1, price: 25, label: 'Yoga in Nature - 1 session' },
+  p4: { sessions: 4, price: 70, label: 'Yoga in Nature - 4 sessions' },
+  p8: { sessions: 8, price: 120, label: 'Yoga in Nature - 8 sessions' },
+  p12: { sessions: 12, price: 150, label: 'Yoga in Nature - 12 sessions' }
 };
 
 function readDb() {
