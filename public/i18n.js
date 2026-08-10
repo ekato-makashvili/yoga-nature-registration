@@ -74,4 +74,4 @@ const I18N = {
   },
 };
 
-const PACKAGE_PRICES = { p1: 20, p4: 60, p8: 100, p12: 140 };
+const PACKAGE_PRICES = { p1: 25, p4: 70, p8: 120, p12: 150 };
