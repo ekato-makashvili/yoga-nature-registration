@@ -36,6 +36,7 @@ const I18N = {
     errPackage: "გთხოვთ, აირჩიოთ პაკეტი.",
     errGeneric: "დაფიქსირდა შეცდომა. სცადეთ თავიდან.",
     langToggle: "EN",
+    pkgTest: 'სატესტო გადახდა',
   },
   en: {
     brandName: "Yoga in Nature",
@@ -71,7 +72,8 @@ const I18N = {
     errPackage: "Please choose a package.",
     errGeneric: "Something went wrong. Please try again.",
     langToggle: "GE",
+    pkgTest: 'Test payment',
   },
 };
 
-const PACKAGE_PRICES = { p1: 25, p4: 70, p8: 120, p12: 150 };
+const PACKAGE_PRICES = { ptest: 1,p1: 25, p4: 70, p8: 120, p12: 150 };

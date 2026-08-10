@@ -28,6 +28,7 @@ app.post('/return.html', (req, res) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 const PACKAGES = {
+  ptest: { sessions: 1, price: 1, label: 'Test payment - 1 GEL' },
   p1: { classs: 1, price: 25, label: 'Yoga in Nature - 1 class' },
   p4: { classs: 4, price: 70, label: 'Yoga in Nature - 4 classs' },
   p8: { classs: 8, price: 120, label: 'Yoga in Nature - 8 classs' },
