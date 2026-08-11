@@ -25,8 +25,7 @@ app.post('/return.html', (req, res) => {
   res.redirect(302, req.originalUrl);
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(express.static(path.join(__dirname, 'public'), { dotfiles: 'allow' }));
 const PACKAGES = {
   ptest: { sessions: 1, price: 1, label: 'Test payment - 1 GEL' },
   p1: { classs: 1, price: 25, label: 'Yoga in Nature - 1 class' },
