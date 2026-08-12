@@ -12,7 +12,7 @@ const I18N = {
     aboutTitle: "რა ვიქონიო თან?",
     aboutBody: "იოგას ხალიჩა და სასმელი წყალი",
     instagramNote:
-      '<a href="https://www.instagram.com/ekaterinemakashvili/" target="_blank" rel="noopener">დამატებითი ინფორმაციისთვის მოგვწერეთ</a>',
+      '<a href="https://www.instagram.com/ekaterinemakashvili/" target="_blank" rel="noopener">დამატებითი ინფორმაცია</a>',
     formTitle: "რეგისტრაცია",
     labelName: "სახელი და გვარი",
     labelMail: "ელ-ფოსტა",
@@ -73,7 +73,7 @@ refundContactBody: 'შეკითხვების შემთხვევ�
     aboutTitle: "What to bring?",
     aboutBody: "Yoga mat and water",
     instagramNote:
-      '<a href="https://www.instagram.com/ekaterinemakashvili/" target="_blank" rel="noopener">For more details, message us</a>',
+      '<a href="https://www.instagram.com/ekaterinemakashvili/" target="_blank" rel="noopener">More info</a>',
     formTitle: "Registration",
     labelName: "Full name",
     labelEmail: "Email",
