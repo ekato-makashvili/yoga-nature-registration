@@ -45,27 +45,176 @@
       </button>
     </header>
 
-<main class="policy-page">
-  <p class="updated" data-i18n="refundUpdated">ბოლო განახლება: 2026</p>
+    <main>
+      <section class="hero">
+        <div class="hero-text">
+          <p class="eyebrow" data-i18n="eyebrow">
+            ღია ცის ქვეშ · სუნთქვა · სიმშვიდე
+          </p>
+          <h1 data-i18n="title">
+            იოგა ბუნებაში<br /><span>ეკატოსთან ერთად</span>
+          </h1>
+          <p class="tagline" data-i18n="tagline">
+            აქ დაგხვდებათ მეგობრული გარემო, მუსიკა, ლამაზი ბუნება - მწვანე მინდორი, სუფთა ჰაერი.
+          </p>
+          <a href="#register" class="cta-link" data-i18n="heroCta"
+            >რეგისტრაცია ↓</a
+          >
+        </div>
 
-  <h1 data-i18n="refundTitle">დაბრუნების პოლიტიკა</h1>
+        <div class="breath" aria-hidden="true">
+          <svg viewBox="0 0 220 220" width="220" height="220">
+            <circle class="breath-ring ring-3" cx="110" cy="110" r="95" />
+            <circle class="breath-ring ring-2" cx="110" cy="110" r="70" />
+            <circle class="breath-circle" cx="110" cy="110" r="46" />
+          </svg>
+          <p
+            class="breath-label"
+            id="breathLabel"
+            data-inhale="ჩაისუნთქე"
+            data-exhale="ამოისუნთქე"
+            data-inhale-en="Inhale"
+            data-exhale-en="Exhale"
+          >
+            ჩაისუნთქე
+          </p>
+        </div>
+      </section>
 
-  <p class="highlight" data-i18n="refundIntro">ცხოვრება ზოგჯერ გეგმებს გვიცვლის, ამიტომ ვცდილობთ, დაბრუნების პოლიტიკა იყოს სამართლიანი და გონივრული.</p>
+      <section class="about">
+        <div class="about-inner">
+          <h2 data-i18n="aboutTitle"></h2>
+          <p data-i18n="aboutBody"></p>
+          <p class="instagram-note" data-i18n="instagramNote">
+            დეტალური ინფორმაციისთვის მომწერეთ
+            <a
+              href="https://www.instagram.com/ekaterinemakashvili/"
+              target="_blank"
+              rel="noopener"
+              >Instagram</a
+            >-ზე.
+          </p>
+        </div>
+      </section>
 
-  <h2 data-i18n="refundH2">დაბრუნების პირობები</h2>
-  <ul>
-    <li data-i18n="refundLi1"><strong>24 საათით ადრე გაუქმება:</strong> თანხა სრულად დაბრუნდება ან შემდეგ გაკვეთილზე გადავა — თქვენი სურვილისამებრ.</li>
-    <li data-i18n="refundLi2"><strong>24 საათზე ნაკლები დროით გაუქმება ან გამოუცხადებლობა:</strong> თანხის დაბრუნება, სამწუხაროდ, ვერ მოხდება.</li>
-    <li data-i18n="refundLi3"><strong>ინსტრუქტორის ან უამინდობის გამო გაუქმებული გაკვეთილი:</strong> თანხა ავტომატურად და სრულად დაბრუნდება, ან, სურვილისამებრ, გაკვეთილის გადავადება.</li>
-    <li data-i18n="refundLi4"><strong>ჯანმრთელობის გადაუდებელი ან სხვა სერიოზული მიზეზი:</strong> დაგვიკავშირდით — ასეთ შემთხვევებს ინდივიდუალურად განვიხილავთ.</li>
-    <li data-i18n="refundLi5"><strong>პაკეტის 30-დღიანი ვადა:</strong> თუ ობიექტური მიზეზით ვერ მოასწარეთ პაკეტის გამოყენება, დაგვიკავშირდით — შესაძლებელია ვადის ერთჯერადი გაგრძელება.</li>
-  </ul>
+      <section class="register" id="register">
+        <div class="register-inner">
+          <h2 data-i18n="formTitle">რეგისტრაცია</h2>
 
-  <h2 data-i18n="refundContactTitle">კონტაქტი</h2>
-  <p data-i18n="refundContactBody">ნებისმიერ შემთხვევაში, დაგვიკავშირდით: ekaterinemakashvili@gmail.com — ყოველთვის მზადა ვართ ვისაუბროთ და ერთად ვიპოვოთ სამართლიანი გამოსავალი.</p>
+          <form id="registrationForm" novalidate>
+            <div class="field">
+              <label for="fullName" data-i18n="labelName"
+                >სახელი და გვარი</label
+              >
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                autocomplete="name"
+                placeholder="სახელი და გვარი / Full name"
+                required
+              />
+            </div>
 
-  <p style="margin-top:2.5rem;"><a href="/" class="cta-link" data-i18n="backLink">← მთავარ გვერდზე</a></p>
-</main>
+            <div class="field">
+              <label for="email" data-i18n="labelEmail">ელ-ფოსტა</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                placeholder="name@example.com"
+                required
+              />
+            </div>
+
+            <div class="field">
+              <span class="field-label" data-i18n="labelPackage"
+                >აირჩიე პაკეტი
+                <em data-i18n="labelPackageNote"
+                  >(მოქმედების ვადა 30 დღე)</em
+                ></span
+              >
+              <div class="packages" role="radiogroup" aria-label="package">
+                <label class="package-card">
+                  <input type="radio" name="packageId" value="p1" required />
+                  <span class="package-body">
+                    <span class="package-leaves" aria-hidden="true">🌿</span>
+                    <span class="package-classes" data-i18n="pkg1"
+                      >1 ვარჯიში</span
+                    >
+                    <span class="package-price">25 GEL</span>
+                  </span>
+                </label>
+
+                <label class="package-card">
+                  <input type="radio" name="packageId" value="p4" required />
+                  <span class="package-body">
+                    <span class="package-leaves" aria-hidden="true">🌿🌿</span>
+                    <span class="package-classes" data-i18n="pkg4"
+                      >4 ვარჯიში</span
+                    >
+                    <span class="package-price">70 GEL</span>
+                  </span>
+                </label>
+
+                <label class="package-card">
+                  <input type="radio" name="packageId" value="p8" required />
+                  <span class="package-body">
+                    <span class="package-leaves" aria-hidden="true"
+                      >🌿🌿🌿</span
+                    >
+                    <span class="package-classes" data-i18n="pkg8"
+                      >8 ვარჯიში</span
+                    >
+                    <span class="package-price">120 GEL</span>
+                  </span>
+                  <span class="package-badge" data-i18n="pkgPopular"
+                    >პოპულარული</span
+                  >
+                </label>
+
+                <label class="package-card">
+                  <input type="radio" name="packageId" value="p12" required />
+                  <span class="package-body">
+                    <span class="package-leaves" aria-hidden="true"
+                      >🌿🌿🌿🌿</span
+                    >
+                    <span class="package-classes" data-i18n="pkg12"
+                      >12 ვარჯიში</span
+                    >
+                    <span class="package-price">150 GEL</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="field">
+              <span class="field-label" data-i18n="labelPayment">გადახდა</span>
+              <div class="payment-methods">
+                <span>Visa</span><span>Mastercard</span><span>Amex</span
+                ><span>Apple&nbsp;Pay</span><span>TBC&nbsp;E-Commerce</span>
+              </div>
+              <p class="payment-note" data-i18n="paymentNote">
+                გადახდა მუშავდება TBC E-Commerce-ის დაცული გვერდზე. მიიღება
+                ნებისმიერი ბანკის ბარათი, BOG-ის ჩათვლით.
+              </p>
+            </div>
+
+            <button
+              type="submit"
+              class="submit-btn"
+              id="submitBtn"
+              data-i18n="submitBtn"
+            >
+              გაგრძელება გადახდაზე
+            </button>
+
+            <p class="form-error" id="formError" role="alert"></p>
+          </form>
+        </div>
+      </section>
+    </main>
 
     <footer class="site-footer">
       <p data-i18n="footerNote">
