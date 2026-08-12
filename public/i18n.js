@@ -62,7 +62,7 @@ refundLi3: '<strong>ინსტრუქტორის ან უამინ�
 refundLi4: '<strong>ჯანმრთელობის გადაუდებელი ან სხვა სერიოზული მიზეზი:</strong> დაგვიკავშირდით — ასეთ შემთხვევებს ინდივიდუალურად განვიხილავთ.',
 refundLi5: '<strong>პაკეტის 30-დღიანი ვადა:</strong> თუ ობიექტური მიზეზით ვერ მოასწარეთ პაკეტის გამოყენება, დაგვიკავშირდით — შესაძლებელია ვადის ერთჯერადი გაგრძელება.',
 refundContactTitle: 'კონტაქტი',
-refundContactBody: 'ნებისმიერ შემთხვევაში, დაგვიკავშირდით: ekaterinemakashvili@gmail.com — ყოველთვის მზადა ვართ ვისაუბროთ და ერთად ვიპოვოთ სამართლიანი გამოსავალი.',
+refundContactBody: 'ნებისმიერი შეკითხვისთვის მიმართეთ: ekaterinemakashvili@gmail.com ან Instagram-ის საშუალებით.',
     langToggle: "EN",
   },
   en: {
@@ -125,7 +125,7 @@ refundLi3: '<strong>Class cancelled by the instructor or due to weather:</strong
 refundLi4: '<strong>Health emergencies or other serious circumstances:</strong> please reach out — we review these individually.',
 refundLi5: '<strong>30-day package validity:</strong> if you weren\'t able to use your package for a genuine reason, contact us — a one-time extension may be possible.',
 refundContactTitle: 'Contact',
-refundContactBody: 'In any case, feel free to reach out: ekaterinemakashvili@gmail.com — we\'re always happy to talk it through and find a fair solution together.',
+refundContactBody: 'For any questions, reach out at ekaterinemakashvili@gmail.com or via <a href="https://www.instagram.com/ekaterinemakashvili/" target="_blank" rel="noopener">Instagram</a>.',
     langToggle: "GE",
   },
 };
