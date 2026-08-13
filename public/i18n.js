@@ -28,7 +28,6 @@ const I18N = {
       "გადახდა მუშავდება TBC E-Commerce-ის დაცული გვერდზე. მიიღება ნებისმიერი ბანკის ბარათი, BOG-ის ჩათვლით.",
     submitBtn: "გადახდაზე გადასვლა",
     submitBtnLoading: "გთხოვთ, მოითმინოთ…",
-    footerNote: "იოგა ბუნებაში, გაჯანსაღდი",
     breathInhale: "ჩაისუნთქე",
     breathExhale: "ამოისუნთქე",
     errName: "გთხოვთ, შეიყვანოთ სახელი და გვარი.",
@@ -36,8 +35,10 @@ const I18N = {
     errPackage: "გთხოვთ, აირჩიოთ პაკეტი.",
     errGeneric: "დაფიქსირდა შეცდომა. სცადეთ თავიდან.",
     backLink: '← მთავარ გვერდზე',
-    terms: 'წესები',
+    address: "📍 მზიურის პარკი, თბილისი",
+    terms: 'წესები & პირობები',
     refundPolicy: 'დაბრუნების პოლიტიკა',
+    privacyPolicy: 'კონფიდენციალურობის პოლიტიკა',
 termsUpdated: 'ბოლო განახლება: 2026',
 termsTitle: 'მომსახურების წესები და პირობები',
 terms1Title: '1. ზოგადი ინფორმაცია',
@@ -63,7 +64,34 @@ refundLi4: '<strong>ჯანმრთელობის გადაუდე�
 refundLi5: '<strong>პაკეტის 30-დღიანი ვადა:</strong> თუ ობიექტური მიზეზით ვერ მოასწარეთ პაკეტის გამოყენება, დაგვიკავშირდით — შესაძლებელია ვადის ერთჯერადი გაგრძელება.',
 refundContactTitle: 'კონტაქტი',
 refundContactBody: 'ნებისმიერი შეკითხვისთვის მიმართეთ: ekaterinemakashvili@gmail.com ან Instagram-ის საშუალებით.',
-    langToggle: "EN",
+// ==================== PRIVACY POLICY ====================
+
+/* ქართულად */
+privacyUpdated: 'ბოლო განახლება: 2026',
+privacyTitle: 'კონფიდენციალურობის პოლიტიკა',
+privacyIntro: 'ჩვენ პატივს ვცემთ თქვენს პირად ინფორმაციას და ვზრუნავთ მის დაცვაზე.',
+
+privacyH2_1: '1. რა ინფორმაციას ვაგროვებთ',
+privacyBody1: 'რეგისტრაციისას შესაძლოა შევაგროვოთ თქვენი სახელი, გვარი, ტელეფონის ნომერი, ელფოსტის მისამართი და კლასზე რეგისტრაციასთან დაკავშირებული ინფორმაცია.',
+
+privacyH2_2: '2. როგორ ვიყენებთ ინფორმაციას',
+privacyLi1: 'იოგას კლასებზე რეგისტრაციისა და აბონემენტების მართვისთვის;',
+privacyLi2: 'თქვენთან დასაკავშირებლად და კლასებთან დაკავშირებული მნიშვნელოვანი ინფორმაციის გასაცნობად;',
+privacyLi3: 'ჩვენი მომსახურების გასაუმჯობესებლად.',
+
+privacyH2_3: '3. მონაცემების გაზიარება',
+privacyBody2: 'თქვენი პერსონალური ინფორმაცია არ იყიდება და არ გადაეცემა მესამე პირებს კომერციული მიზნებისთვის. საჭიროების შემთხვევაში, მონაცემები შეიძლება დამუშავდეს იმ სერვისების მიერ, რომლებიც გვეხმარებიან ვებსაიტის, რეგისტრაციის ან გადახდების მართვაში.',
+
+privacyH2_4: '4. მონაცემების დაცვა',
+privacyBody3: 'ჩვენ ვიღებთ გონივრულ ზომებს თქვენი პერსონალური მონაცემების არასანქცირებული წვდომის, დაკარგვის ან არასწორად გამოყენებისგან დასაცავად.',
+
+privacyH2_5: '5. თქვენი უფლებები',
+privacyBody4: 'თქვენ გაქვთ უფლება მოითხოვოთ ინფორმაცია თქვენი პერსონალური მონაცემების დამუშავების შესახებ, მათი შესწორება ან, კანონით გათვალისწინებულ შემთხვევებში, წაშლა.',
+
+privacyH2_6: '6. კონტაქტი',
+privacyContactBody: 'კონფიდენციალურობის პოლიტიკასთან დაკავშირებული კითხვებისთვის დაგვიკავშირდით: ekaterinemakashvili@gmail.com ან Instagram-ის საშუალებით.',
+
+langToggle: "EN",
   },
   en: {
     brandName: "Yoga in Nature",
@@ -91,7 +119,6 @@ refundContactBody: 'ნებისმიერი შეკითხვის�
       "Payment is processed on TBC E-Commerce\u2019s secure page. Any bank\u2019s card is accepted, including BOG.",
     submitBtn: "Continue to payment",
     submitBtnLoading: "Please wait…",
-    footerNote: "Yoga in Nature, come back to yourself",
     breathInhale: "Inhale",
     breathExhale: "Exhale",
     errName: "Please enter your full name.",
@@ -99,8 +126,10 @@ refundContactBody: 'ნებისმიერი შეკითხვის�
     errPackage: "Please choose a package.",
     errGeneric: "Something went wrong. Please try again.",
     backLink: '← Back to home',
-    terms: 'terms',
-    refundPolicy: 'refund policy',
+    address: "📍 Mziuri Park, Tbilisi",
+    terms: 'Terms & Conditions',
+    refundPolicy: 'Refund policy',
+    privacyPolicy: 'Privacy policy',
 termsUpdated: 'Last updated: 2026',
 termsTitle: 'Terms & Conditions',
 terms1Title: '1. General information',
@@ -126,7 +155,32 @@ refundLi4: '<strong>Health emergencies or other serious circumstances:</strong> 
 refundLi5: '<strong>30-day package validity:</strong> if you weren\'t able to use your package for a genuine reason, contact us — a one-time extension may be possible.',
 refundContactTitle: 'Contact',
 refundContactBody: 'For any questions, reach out at ekaterinemakashvili@gmail.com or via <a href="https://www.instagram.com/ekaterinemakashvili/" target="_blank" rel="noopener">Instagram</a>.',
-    langToggle: "GE",
+
+privacyUpdated: 'Last updated: 2026',
+privacyTitle: 'Privacy Policy',
+privacyIntro: 'We respect your privacy and are committed to protecting your personal information.',
+
+privacyH2_1: '1. Information we collect',
+privacyBody1: 'When you register, we may collect your full name, phone number, email address, and information related to your class registration.',
+
+privacyH2_2: '2. How we use your information',
+privacyLi1: 'To manage yoga class registrations and packages;',
+privacyLi2: 'To contact you regarding your registration and important class information;',
+privacyLi3: 'To improve our services.',
+
+privacyH2_3: '3. Sharing your information',
+privacyBody2: 'Your personal information is not sold or shared with third parties for commercial purposes. When necessary, your information may be processed by service providers that help us operate the website, manage registrations, or process payments.',
+
+privacyH2_4: '4. Data security',
+privacyBody3: 'We take reasonable measures to protect your personal information from unauthorized access, loss, or misuse.',
+
+privacyH2_5: '5. Your rights',
+privacyBody4: 'You have the right to request information about how your personal data is processed, to request corrections, and, where legally applicable, to request deletion of your personal data.',
+
+privacyH2_6: '6. Contact',
+privacyContactBody: 'If you have any questions about this Privacy Policy, please contact us at ekaterinemakashvili@gmail.com or via Instagram.',    
+    
+langToggle: "GE",
   },
 };
 
