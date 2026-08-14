@@ -14,7 +14,7 @@ A bilingual (Georgian/English) registration + payment form for outdoor yoga clas
 - გადამისამართება TBC-ის დაცულ checkout გვერდზე (მიიღება Visa, Mastercard, Amex, Apple Pay — ნებისმიერი ბანკის ბარათი, BOG-ის ჩათვლით)
 - დაბრუნების გვერდი, რომელიც აჩვენებს გადახდის სტატუსს
 
-- A bilingual page with package selection (1 / 4 / 8 / 12 sessions, valid 30 days)
+- A bilingual page with package selection (1 / 4 / 8 / 12 classes, valid 30 days)
 - A Node.js/Express server that saves registrations and creates a payment via TBC's API
 - Redirect to TBC's secure checkout page (accepts Visa, Mastercard, Amex, Apple Pay — any bank's card, including BOG)
 - A return page that shows the payment status

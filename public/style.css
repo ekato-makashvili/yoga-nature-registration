@@ -408,6 +408,49 @@ h1, h2 {
   border-radius: 999px;
 }
 
+.field-label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.day-pill {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--canopy);
+  background: var(--mist);
+  border-radius: 999px;
+  padding: 0.22rem 0.65rem;
+}
+
+.time-card .package-body {
+  align-items: center;
+  text-align: center;
+}
+
+.time-icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #FFF9EC;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+
+.time-value {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--canopy);
+}
+
 /* Payment methods */
 
 .payment-methods {
@@ -474,8 +517,6 @@ h1, h2 {
 
 /* ---------- Footer ---------- */
 
-/* ---------- Footer ---------- */
-
 .site-footer {
   text-align: center;
   padding: 3rem 1.5rem 2.5rem;
@@ -485,7 +526,20 @@ h1, h2 {
 .footer-contact {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.footer-heading {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--canopy);
+  text-align: center;
+  margin: 0 0 1.1rem;
+}
+
+.footer-contact-wrap {
+  display: flex;
+  justify-content: center;
 }
 
 .footer-email,
@@ -578,6 +632,14 @@ h1, h2 {
   font-size: 0.65rem;
   letter-spacing: 0.04em;
   color: #8b887b;
+}
+
+.footer-email,
+.footer-phone,
+.footer-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 /* ---------- Status / return page ---------- */

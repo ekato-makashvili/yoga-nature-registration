@@ -97,8 +97,8 @@
       }
       if (data.status === 'approved') {
         const detail = data.language === 'EN'
-          ? `${data.fullName}, your ${data.sessions}-session package (${data.price} GEL) is confirmed.`
-          : `${data.fullName}, თქვენი ${data.sessions} ვარჯიშიანი პაკეტი (${data.price} ₾) დადასტურებულია.`;
+          ? `${data.fullName}, your ${data.classes}-class package (${data.price} GEL) is confirmed.`
+          : `${data.fullName}, თქვენი ${data.classes} ვარჯიშიანი პაკეტი (${data.price} ₾) დადასტურებულია.`;
         render('approved', detail);
       } else {
         render(data.status || 'error');
