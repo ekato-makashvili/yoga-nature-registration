@@ -192,4 +192,4 @@ langToggle: "GE",
   },
 };
 
-const PACKAGE_PRICES = { ptest: 1,p1: 25, p4: 70, p8: 120, p12: 150 };
+const PACKAGE_PRICES = { ptest: 1,p1: 20, p4: 70, p8: 120, p12: 150 };
